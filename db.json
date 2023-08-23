@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Денис",
+      "tours": []
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "city": "Владимир",
+      "tours": [
+        {
+          "id": 1,
+          "name": "Полный тур",
+          "subscribe": false
+        },
+        {
+          "id": 2,
+          "name": "Семейный тур",
+          "subscribe": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "city": "Суздаль",
+      "tours": [
+        {
+          "id": 1,
+          "name": "Полный тур",
+          "subscribe": false
+        },
+        {
+          "id": 2,
+          "name": "Семейный тур",
+          "subscribe": false
+        }
+      ]
+    }
+  ]
+}
