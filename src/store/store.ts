@@ -7,3 +7,5 @@ export const store = configureStore({
     reducer: globalStore,
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware)
 })
+
+export type RootState = ReturnType<typeof store.getState>

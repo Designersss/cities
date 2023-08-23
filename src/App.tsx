@@ -10,13 +10,15 @@ function App() {
     const {addUser} = useActions()
     const {data} = useGetUserQuery([])
     useEffect(() => {
-        const user = data?.filter((user: IUser) => user.email === localStorage.getItem('token-user'))
+        const user = data?.find((user: IUser) => user.email === localStorage.getItem('token-user'))
         addUser(user)
     }, [data])
     return (
         <BrowserRouter>
-            <Header/>
-            <Router/>
+            <div className='container'>
+                <Header/>
+                <Router/>
+            </div>
         </BrowserRouter>
     )
 }

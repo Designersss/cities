@@ -27,6 +27,34 @@
       "password": "555",
       "tours": [],
       "id": 4
+    },
+    {
+      "name": "new-user-104",
+      "email": "22",
+      "password": "22",
+      "tours": [],
+      "id": 5
+    },
+    {
+      "name": "new-user-60",
+      "email": "231",
+      "password": "231",
+      "tours": [],
+      "id": 6
+    },
+    {
+      "name": "new-user-86",
+      "email": "234",
+      "password": "423",
+      "tours": [],
+      "id": 7
+    },
+    {
+      "name": "new-user-45",
+      "email": "321",
+      "password": "321",
+      "tours": [],
+      "id": 8
     }
   ],
   "cities": [

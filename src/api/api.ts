@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {URL_API} from "../utils/utlis.ts";
+import {ICities, IUser} from "../type-global/user-types.ts";
 
 
 export const api = createApi({
@@ -9,11 +10,11 @@ export const api = createApi({
         baseUrl: URL_API
     }),
     endpoints: (builder) => ({
-        getUser: builder.query({
+        getUser: builder.query<IUser[], object>({
             query: () => '/users',
             providesTags: () => [{type: 'Users'}]
         }),
-        getCities: builder.query({
+        getCities: builder.query<ICities[], object>({
             query: () => '/cities'
         }),
         createUser: builder.mutation({
@@ -27,4 +28,4 @@ export const api = createApi({
     })
 })
 
-export const {useGetUserQuery, useCreateUserMutation} = api
+export const {useGetUserQuery, useCreateUserMutation, useGetCitiesQuery} = api
