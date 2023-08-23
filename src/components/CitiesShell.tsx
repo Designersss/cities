@@ -5,7 +5,8 @@ import {Link} from "react-router-dom";
 interface CitiesProps {
     cities: ICities
 }
-const Cities:FC<CitiesProps> = ({cities}: CitiesProps) => {
+
+const CitiesShell: FC<CitiesProps> = ({cities}: CitiesProps) => {
     return (
         <div>
             <Link to={`/cities/${cities.id}`}>{cities.city}</Link>
@@ -13,4 +14,4 @@ const Cities:FC<CitiesProps> = ({cities}: CitiesProps) => {
     );
 };
 
-export default Cities;
+export default CitiesShell;

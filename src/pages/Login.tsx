@@ -18,11 +18,11 @@ const Login = () => {
         name: `new-user-${Math.floor(Math.random() * 123)}`,
         email,
         password,
-        tours: []
+        bought: []
     }
 
     const registration = async () => {
-        const candidate = await data?.find((user: IUser) => user.email === email)
+        const candidate: IUser | undefined = data?.find((user: IUser) => user.email === email)
         if (candidate) {
             alert('Такой пользователь уже существует')
         } else {
@@ -35,7 +35,7 @@ const Login = () => {
     }
 
     const login = async () => {
-        const candidate: IUser = data?.find((user: IUser) => user.email === email)
+        const candidate: IUser | undefined = data?.find((user: IUser) => user.email === email)
         if (candidate) {
             if (email === '' || password === ''){
                 alert('Заполните поля')

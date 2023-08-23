@@ -1,5 +1,5 @@
 import {useGetCitiesQuery} from "../api/api.ts";
-import Cities from "../components/Cities.tsx";
+import CitiesShell from "../components/CitiesShell.tsx";
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
                     ? <>Loading....</>
                     : data
                         ? <div>
-                            {data.map(cities => <Cities key={cities.id} cities={cities} />)}
+                            {data.map(cities => <CitiesShell key={cities.id} cities={cities} />)}
                         </div>
                         : <>Not found</>
             }

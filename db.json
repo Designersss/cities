@@ -5,56 +5,26 @@
       "name": "Денис",
       "email": "123",
       "password": "123",
-      "tours": []
+      "bought": [
+        {
+          "city": "Владимир",
+          "id": 1,
+          "tours": [
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "subscribe": true
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "new-user-87",
-      "email": "312",
-      "password": "12",
-      "tours": [],
+      "name": "new-user-82",
+      "email": "denis",
+      "password": "denis",
+      "bought": [],
       "id": 2
-    },
-    {
-      "name": "new-user-57",
-      "email": "44",
-      "password": "44",
-      "tours": [],
-      "id": 3
-    },
-    {
-      "name": "new-user-51",
-      "email": "555",
-      "password": "555",
-      "tours": [],
-      "id": 4
-    },
-    {
-      "name": "new-user-104",
-      "email": "22",
-      "password": "22",
-      "tours": [],
-      "id": 5
-    },
-    {
-      "name": "new-user-60",
-      "email": "231",
-      "password": "231",
-      "tours": [],
-      "id": 6
-    },
-    {
-      "name": "new-user-86",
-      "email": "234",
-      "password": "423",
-      "tours": [],
-      "id": 7
-    },
-    {
-      "name": "new-user-45",
-      "email": "321",
-      "password": "321",
-      "tours": [],
-      "id": 8
     }
   ],
   "cities": [

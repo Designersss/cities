@@ -17,6 +17,9 @@ export const api = createApi({
         getCities: builder.query<ICities[], object>({
             query: () => '/cities'
         }),
+        getOneCities: builder.query<ICities, string | undefined>({
+            query: (id) => `/cities/${id}`
+        }),
         createUser: builder.mutation({
             query: (user) => ({
                 url: '/users',
@@ -24,8 +27,15 @@ export const api = createApi({
                 method: 'POST'
             }),
             invalidatesTags: () => [{type: 'Users'}]
+        }),
+        byTours: builder.mutation({
+            query: (user) => ({
+                url: `/users/${user.id}`,
+                method: 'PUT',
+                body: user
+            })
         })
     })
 })
 
-export const {useGetUserQuery, useCreateUserMutation, useGetCitiesQuery} = api
+export const {useGetUserQuery, useCreateUserMutation, useByToursMutation, useGetOneCitiesQuery, useGetCitiesQuery} = api
