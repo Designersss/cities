@@ -7,12 +7,109 @@
       "password": "123",
       "bought": [
         {
+          "city": "Санкт-Петербург",
+          "id": 5,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Иваново",
+          "id": 6,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
           "city": "Владимир",
           "id": 1,
           "tours": [
             {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
               "id": 2,
               "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Ковров",
+          "id": 3,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Москва",
+          "id": 4,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Суздаль",
+          "id": 2,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
               "subscribe": true
             }
           ]
@@ -23,7 +120,80 @@
       "name": "new-user-82",
       "email": "denis",
       "password": "denis",
-      "bought": [],
+      "bought": [
+        {
+          "city": "Суздаль",
+          "id": 2,
+          "tours": [
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Владимир",
+          "id": 1,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Санкт-Петербург",
+          "id": 5,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        },
+        {
+          "city": "Иваново",
+          "id": 6,
+          "tours": [
+            {
+              "id": 1,
+              "name": "Полный тур",
+              "price": 200,
+              "subscribe": true
+            },
+            {
+              "id": 2,
+              "name": "Семейный тур",
+              "price": 200,
+              "subscribe": true
+            }
+          ]
+        }
+      ],
       "id": 2
     }
   ],
@@ -35,11 +205,13 @@
         {
           "id": 1,
           "name": "Полный тур",
+          "price": 200,
           "subscribe": false
         },
         {
           "id": 2,
           "name": "Семейный тур",
+          "price": 200,
           "subscribe": false
         }
       ]
@@ -51,11 +223,85 @@
         {
           "id": 1,
           "name": "Полный тур",
+          "price": 200,
           "subscribe": false
         },
         {
           "id": 2,
           "name": "Семейный тур",
+          "price": 200,
+          "subscribe": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "city": "Ковров",
+      "tours": [
+        {
+          "id": 1,
+          "name": "Полный тур",
+          "price": 200,
+          "subscribe": false
+        },
+        {
+          "id": 2,
+          "name": "Семейный тур",
+          "price": 200,
+          "subscribe": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "city": "Москва",
+      "tours": [
+        {
+          "id": 1,
+          "name": "Полный тур",
+          "price": 200,
+          "subscribe": false
+        },
+        {
+          "id": 2,
+          "name": "Семейный тур",
+          "price": 200,
+          "subscribe": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "city": "Санкт-Петербург",
+      "tours": [
+        {
+          "id": 1,
+          "name": "Полный тур",
+          "price": 200,
+          "subscribe": false
+        },
+        {
+          "id": 2,
+          "name": "Семейный тур",
+          "price": 200,
+          "subscribe": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "city": "Иваново",
+      "tours": [
+        {
+          "id": 1,
+          "name": "Полный тур",
+          "price": 200,
+          "subscribe": false
+        },
+        {
+          "id": 2,
+          "name": "Семейный тур",
+          "price": 200,
           "subscribe": false
         }
       ]

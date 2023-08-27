@@ -28,14 +28,23 @@ export const api = createApi({
             }),
             invalidatesTags: () => [{type: 'Users'}]
         }),
-        byTours: builder.mutation({
+        byCities: builder.mutation({
             query: (user) => ({
                 url: `/users/${user.id}`,
                 method: 'PUT',
                 body: user
-            })
+            }),
+            invalidatesTags: () => [{type: 'Users'}]
+        }),
+        byTour: builder.mutation({
+            query: (user) => ({
+                url: `/users/${user.id}`,
+                method: 'PUT',
+                body: user
+            }),
+            invalidatesTags: () => [{type: 'Users'}]
         })
     })
 })
 
-export const {useGetUserQuery, useCreateUserMutation, useByToursMutation, useGetOneCitiesQuery, useGetCitiesQuery} = api
+export const {useGetUserQuery, useCreateUserMutation, useByTourMutation, useByCitiesMutation, useGetOneCitiesQuery, useGetCitiesQuery} = api

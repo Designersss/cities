@@ -9,7 +9,8 @@ interface CitiesProps {
 const CitiesShell: FC<CitiesProps> = ({cities}: CitiesProps) => {
     return (
         <div>
-            <Link to={`/cities/${cities.id}`}>{cities.city}</Link>
+            <Link className='bg-[#383838] h-16 rounded-md flex justify-center items-center'
+                  to={`/cities/${cities.id}`}>{cities.city}</Link>
         </div>
     );
 };

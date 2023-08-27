@@ -2,6 +2,7 @@
 export interface ITours {
     id: number,
     name: string,
+    price: number,
     subscribe: boolean
 }
 

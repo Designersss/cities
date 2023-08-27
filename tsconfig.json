@@ -2,10 +2,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "es5", "es6"],
     "module": "ESNext",
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -20,6 +19,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
+  "prefer-const": ["error", {
+    "destructuring": "any",
+    "ignoreReadBeforeAssign": false
+  }],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

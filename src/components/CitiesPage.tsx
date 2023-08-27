@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
-import {useByToursMutation, useGetOneCitiesQuery} from "../api/api.ts";
+import {useByCitiesMutation, useGetOneCitiesQuery} from "../api/api.ts";
 import ToursShell from "./ToursShell.tsx";
-import {ITours} from "../type-global/user-types.ts";
+import {ICities, ITours} from "../type-global/user-types.ts";
 import {useEffect, useState} from "react";
 import {useGetUser} from "../hooks/useGetUser.ts";
 
@@ -10,23 +10,62 @@ const CitiesPage = () => {
     const {id} = useParams()
     const {data, isLoading} = useGetOneCitiesQuery(id)
     const {user} = useGetUser()
-    const [byTour] = useByToursMutation()
+    const [byCities] = useByCitiesMutation()
     const [clickTour, setClickTour] = useState<ITours>()
-    console.log(user)
     useEffect(() => {
         if (data && clickTour) {
-            const initialState = {
-                city: data.city,
-                id: data.id,
-                tours: [ ...user.bought,
-                    {
-                        id: clickTour.id,
-                        name: clickTour.name,
-                        subscribe: true
+            const newData: ITours[] = [...data.tours]
+            const itemID: ICities | undefined = user.bought?.find((userBought) => userBought.id === data.id)
+            const itemYes: ITours | undefined = data.tours.find((item) => item.id === clickTour.id)
+            const newArray: ICities | undefined = user.bought.find((cities) => cities.id === data.id)
+            const addTours: ITours | undefined = newArray?.tours.find((tours) => tours.id === clickTour.id)
+            const newIte = newArray?.tours.map(item => item)
+
+            for (let i = 0; i < data.tours.length; i++) {
+                newData.forEach(function (el, i) {
+                    if (el.id === clickTour.id) {
+                        newData.splice(i, 1)
                     }
-                ]
+                })
+                newIte?.forEach(function (el, i) {
+                    if (el.id === clickTour.id) {
+                        newIte.splice(i, 1)
+                    }
+                })
             }
-            byTour({...user, bought: [...user.bought, initialState]})
+
+            if (itemID === undefined) {
+                if (itemYes) {
+                    const initialStateOne = {
+                        city: data.city,
+                        id: data.id,
+                        tours: [...newData, {
+                            id: itemYes.id,
+                            name: itemYes.name,
+                            price: itemYes?.price,
+                            subscribe: true
+                        }]
+                    }
+                    byCities({...user, bought: [...user.bought, initialStateOne]})
+                }
+            } else {
+                if (newIte) {
+                    const initialStateTwo = {
+                        city: data.city,
+                        id: data.id,
+                        tours: [...newIte, {
+                            id: addTours?.id,
+                            name: addTours?.name,
+                            price: addTours?.price,
+                            subscribe: true
+                        }]
+                    }
+                    const newToursBy = [...user.bought, initialStateTwo]
+                    const indexTours: number = newToursBy.map(el => el.id).indexOf(initialStateTwo.id)
+                    newToursBy.splice(indexTours, 1)
+                    byCities({...user, bought: newToursBy})
+                }
+            }
         }
     }, [clickTour])
     return (
@@ -35,14 +74,14 @@ const CitiesPage = () => {
                 isLoading
                     ? <>Loading...</>
                     : data
-                        ? <div>{data.city}</div>
+                        ? <div className='px-2 w-96 py-1 text-xl bg-[#383838] rounded-md'>Город: {data.city}</div>
                         : <>Not found</>
             }
             {
                 isLoading
                     ? <>Loading...</>
                     : data
-                        ? data.tours.map(tour => <ToursShell setClickTour={setClickTour} key={tour.id} tour={tour}/>)
+                        ? data.tours.map(tour => <ToursShell idCities={data} setClickTour={setClickTour} key={tour.id} tour={tour}/>)
                         : <>Not found</>
             }
         </div>

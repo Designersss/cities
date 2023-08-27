@@ -12,16 +12,16 @@ const Header = () => {
     }
     console.log('render Header')
     return (
-        <div className='flex justify-between'>
-            <div>
-                <Link to='/'>Начальная</Link>
+        <div className='flex justify-between mt-2'>
+            <div className=''>
+                <Link to='/'>ПокупкаТуров.Ру</Link>
             </div>
             <div>
                 {
                     user
                         ? <div>
-                            <span>{user.email}</span>
-                            <button onClick={logout}>Выйти</button>
+                            <Link to={`/user/${user.id}`} className='px-2 py-1 bg-[#383838] rounded-md mr-4'>Пользователь: {user.name}</Link>
+                            <button className='px-2 py-1 bg-[#383838] rounded-md' onClick={logout}>Выйти</button>
                         </div>
                         : <div>
                             <Link to='/login'>Вход</Link>
