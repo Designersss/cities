@@ -4,14 +4,15 @@ import {ITours} from "../type-global/user-types.ts";
 
 
 const TourPages = () => {
-    const {id} = useParams()
-    const idCities = location.pathname[8]
-    const {data} = useGetOneCitiesQuery(idCities)
-    const toursPages: ITours = data?.tours.find(el => el.id === parseInt(id))
+    ////////////// ТУТ ЕСЛИ ЧТО НЕ ПРАВИЛЬНО ВСЕ СДЕЛАНО, НУЖНО ПО ДРУГОМУ, Я ЭТО СДЕЛАЛ ПРОСТО, ЧТО БЫ РАБОТАЛО /////////////////////
+    const {id} = useParams() // поиск ID через params
+    const idCities = location.pathname[8] // поиск города через location
+    const {data} = useGetOneCitiesQuery(idCities) // Выводим город по id
+    const toursPages: ITours | undefined = data?.tours.find(el => el.id === parseInt(id)) // Ищем определенный тур
     return (
         <div>
             {
-                toursPages
+                toursPages // проверка, если тур найден, выводим ниформацию
                     ?
                     <div className='w-96 mt-2 bg-[#424242] py-1 rounded-md'>
                         <span>Название тура: {toursPages.name}</span>

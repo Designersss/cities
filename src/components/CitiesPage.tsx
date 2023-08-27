@@ -14,56 +14,56 @@ const CitiesPage = () => {
     const [clickTour, setClickTour] = useState<ITours>()
     useEffect(() => {
         if (data && clickTour) {
-            const newData: ITours[] = [...data.tours]
-            const itemID: ICities | undefined = user.bought?.find((userBought) => userBought.id === data.id)
-            const itemYes: ITours | undefined = data.tours.find((item) => item.id === clickTour.id)
-            const newArray: ICities | undefined = user.bought.find((cities) => cities.id === data.id)
-            const addTours: ITours | undefined = newArray?.tours.find((tours) => tours.id === clickTour.id)
-            const newIte = newArray?.tours.map(item => item)
+            const newData: ITours[] = [...data.tours] // создаем новый массив, в котором передаем все города из базы данных
+            const itemID: ICities | undefined = user.bought?.find((userBought) => userBought.id === data.id) // поиск определенного города
+            const itemYes: ITours | undefined = data.tours.find((item) => item.id === clickTour.id) // поиск определенного тура
+            const newArray: ICities | undefined = user.bought.find((cities) => cities.id === data.id) // поиск определенного города у пользователя
+            const addTours: ITours | undefined = newArray?.tours.find((tours) => tours.id === clickTour.id) // поиск определенного тура у пользователя
+            const newIte = newArray?.tours.map(item => item) // поиск определенного тура в городе, у пользователя
 
             for (let i = 0; i < data.tours.length; i++) {
                 newData.forEach(function (el, i) {
                     if (el.id === clickTour.id) {
-                        newData.splice(i, 1)
+                        newData.splice(i, 1) // Удаляем из массива Cities в базе данных существуеющий город по ID
                     }
                 })
                 newIte?.forEach(function (el, i) {
                     if (el.id === clickTour.id) {
-                        newIte.splice(i, 1)
+                        newIte.splice(i, 1)// Удаляем из массива пользователя с городами существуеющий город по ID
                     }
                 })
             }
 
             if (itemID === undefined) {
                 if (itemYes) {
-                    const initialStateOne = {
+                    const initialStateOne = { // Создаем новый объект, в который передаем поля выбранного города и выбранного тура
                         city: data.city,
                         id: data.id,
-                        tours: [...newData, {
+                        tours: [...newData, { // разворачиваем туры выбранного города
                             id: itemYes.id,
                             name: itemYes.name,
                             price: itemYes?.price,
                             subscribe: true
                         }]
                     }
-                    byCities({...user, bought: [...user.bought, initialStateOne]})
+                    byCities({...user, bought: [...user.bought, initialStateOne]}) // функция для обновления базы данных
                 }
             } else {
                 if (newIte) {
-                    const initialStateTwo = {
+                    const initialStateTwo = { // Создаем новый объект, в который передаем поля выбранного города и выбранного тура
                         city: data.city,
                         id: data.id,
-                        tours: [...newIte, {
+                        tours: [...newIte, { // разворачиваем туры выбранного города у пользователя
                             id: addTours?.id,
                             name: addTours?.name,
                             price: addTours?.price,
                             subscribe: true
                         }]
                     }
-                    const newToursBy = [...user.bought, initialStateTwo]
-                    const indexTours: number = newToursBy.map(el => el.id).indexOf(initialStateTwo.id)
-                    newToursBy.splice(indexTours, 1)
-                    byCities({...user, bought: newToursBy})
+                    const newToursBy = [...user.bought, initialStateTwo] // Создаем новый массив, в котором передаем города пользователя, и добавляем InitialStateTwo
+                    const indexTours: number = newToursBy.map(el => el.id).indexOf(initialStateTwo.id) // находим индекс уже существующего города в массиве
+                    newToursBy.splice(indexTours, 1) // Удаляем город по индексу и оставляем новый (InitialStateTwo)
+                    byCities({...user, bought: newToursBy}) // функция для обновления базы данных
                 }
             }
         }

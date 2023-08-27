@@ -55,9 +55,9 @@ const Login = () => {
 
     return (
         <div>
-            <input placeholder='Введите email' className='border border-amber-200 rounded-md ml-8 px-3 py-1 outline-0' value={email}
+            <input placeholder='Введите email' className='border text-black border-amber-200 rounded-md ml-8 px-3 py-1 outline-0' value={email}
                    onChange={e => setEmail(e.target.value)} type="text"/>
-            <input placeholder='Введите пароль' className='border border-amber-200 rounded-md ml-8 px-3 py-1 outline-0' value={password}
+            <input placeholder='Введите пароль' className='border text-black border-amber-200 rounded-md ml-8 px-3 py-1 outline-0' value={password}
                    onChange={e => setPassword(e.target.value)} type="text"/>
             {
                 location.pathname === '/login'

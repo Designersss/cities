@@ -9,7 +9,7 @@ import {useActions} from "./hooks/useActions.ts";
 function App() {
     const {addUser} = useActions()
     const {data} = useGetUserQuery([])
-    useEffect(() => {
+    useEffect(() => { // При заходе на сайт проверяет, авторизирован ли пользователь или нет
         const user = data?.find((user: IUser) => user.email === localStorage.getItem('token-user'))
         addUser(user)
     }, [data])

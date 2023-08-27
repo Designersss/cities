@@ -12,18 +12,17 @@ interface ToursProps {
 
 const ToursShell: FC<ToursProps> = ({tour, setClickTour, idCities}) => {
     const {user} = useGetUser()
-    const newToursId = user?.bought.find(el => el.id === idCities.id)
-    const newToursSubs = newToursId?.tours.find(el => el.id === tour.id)
-    console.log(newToursSubs?.subscribe)
+    const newToursId = user?.bought.find(el => el.id === idCities.id) // Поиск определенного города по id
+    const newToursSubs = newToursId?.tours.find(el => el.id === tour.id) // Поиск определенного тура по id
     const byTour = () => {
-        setClickTour(tour)
+        setClickTour(tour) // передаем состояние в предыдущий компонент => (<CitiesPage/>)
     }
     return (
         <div className='bg-[#303030] rounded-md mt-5 w-72 px-3 py-2'>
             <div className='flex justify-between'>
                 <p>{tour.name}</p>
                 {
-                    newToursSubs?.subscribe
+                    newToursSubs?.subscribe // проверка, если у пользователя куплен определенный тур
                         ?
                         <></>
                         :

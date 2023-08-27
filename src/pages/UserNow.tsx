@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 
 const UserNow = () => {
     const {user} = useGetUser()
-    console.log(user)
     return (
         <div>
             {

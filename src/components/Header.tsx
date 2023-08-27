@@ -7,7 +7,7 @@ const Header = () => {
     const {user} = useGetUser()
     const {addUser} = useActions()
     const logout = () => {
-        addUser(null)
+        addUser(null) // При клике на выйти, выходит из аккаунта
         localStorage.setItem('token-user', '')
     }
     console.log('render Header')
